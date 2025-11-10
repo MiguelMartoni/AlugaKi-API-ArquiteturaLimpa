@@ -1,5 +1,5 @@
 package com.AlugaKi.domain.entity;
 
-public record Usuario(int id, String nome, String email, String senha, String cpfCnpj, String telefone, int enderecoId, boolean status) {
+public record Usuario(int idUsuario, String nome, String email, String cpfCnpj, String contato, String senha, String cep, String endereco, String numeroResidenc, String foto) {
     
 }

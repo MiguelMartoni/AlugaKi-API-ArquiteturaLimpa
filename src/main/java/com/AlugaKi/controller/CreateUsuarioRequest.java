@@ -1,5 +1,5 @@
 package com.AlugaKi.controller;
 
-public record CreateUsuarioRequest(int id, String nome, String email, String senha, String cpfCnpj, String telefone, int enderecoId, boolean status){
+public record CreateUsuarioRequest(int idUsuario, String nome, String email, String cpfCnpj, String contato, String senha, String cep, String endereco, String numeroResidenc, String foto){
 
 } 

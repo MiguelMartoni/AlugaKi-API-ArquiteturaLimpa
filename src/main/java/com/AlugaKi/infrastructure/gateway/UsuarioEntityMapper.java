@@ -6,10 +6,32 @@ import com.AlugaKi.infrastructure.persistence.UsuarioEntity;
 public class UsuarioEntityMapper {
 
     UsuarioEntity toEntity(Usuario usuarioDomainObj) {
-        return new UsuarioEntity(usuarioDomainObj.id(),usuarioDomainObj.nome(), usuarioDomainObj.email(), usuarioDomainObj.senha(), usuarioDomainObj.cpfCnpj(), usuarioDomainObj.telefone(), usuarioDomainObj.enderecoId(), usuarioDomainObj.status());
+        return new UsuarioEntity(
+            usuarioDomainObj.idUsuario(),
+            usuarioDomainObj.nome(),
+            usuarioDomainObj.email(),
+            usuarioDomainObj.cpfCnpj(),
+            usuarioDomainObj.contato(),
+            usuarioDomainObj.senha(),
+            usuarioDomainObj.cep(),
+            usuarioDomainObj.endereco(),
+            usuarioDomainObj.numeroResidenc(),
+            usuarioDomainObj.foto()
+        );
     }
 
     Usuario toDomainObj(UsuarioEntity usuarioEntity) {
-        return new Usuario(usuarioEntity.getId(),usuarioEntity.getNome(), usuarioEntity.getEmail(), usuarioEntity.getSenha(), usuarioEntity.getCpfCnpj(), usuarioEntity.getTelefone(), usuarioEntity.getEnderecoId(), usuarioEntity.isStatus());
+        return new Usuario(
+            usuarioEntity.getIdUsuario(),
+            usuarioEntity.getNome(),
+            usuarioEntity.getEmail(),
+            usuarioEntity.getCpfCnpj(),
+            usuarioEntity.getContato(),
+            usuarioEntity.getSenha(),
+            usuarioEntity.getCep(),
+            usuarioEntity.getEndereco(),
+            usuarioEntity.getNumeroResidenc(),
+            usuarioEntity.getFoto()
+        );
     }
 }

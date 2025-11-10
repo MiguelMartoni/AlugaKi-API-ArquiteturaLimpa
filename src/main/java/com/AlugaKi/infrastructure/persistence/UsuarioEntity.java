@@ -1,5 +1,6 @@
 package com.AlugaKi.infrastructure.persistence;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,76 +12,131 @@ import jakarta.persistence.Table;
 public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String nome;
-    private String email;
-    private String senha;
-    private String cpfCnpj;
-    private String telefone;
-    private int enderecoId;
-    private boolean status;
+    @Column(name = "id_usuario")
+    private int idUsuario;
     
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    public String getCpfCnpj() {
-        return cpfCnpj;
-    }
-    public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
-    }
-    public String getTelefone() {
-        return telefone;
-    }
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-    public int getEnderecoId() {
-        return enderecoId;
-    }
-    public void setEnderecoId(int enderecoId) {
-        this.enderecoId = enderecoId;
-    }
-    public boolean isStatus() {
-        return status;
-    }
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
+    @Column(name = "nome", nullable = false, length = 100)
+    private String nome;
+    
+    @Column(name = "email", nullable = false, length = 100)
+    private String email;
+    
+    @Column(name = "cpf_cnpj", nullable = false, length = 15, unique = true)
+    private String cpfCnpj;
+    
+    @Column(name = "contato", nullable = false, length = 11)
+    private String contato;
+    
+    @Column(name = "senha", nullable = false, length = 45)
+    private String senha;
+    
+    @Column(name = "cep", nullable = false, length = 10)
+    private String cep;
+    
+    @Column(name = "endereço", nullable = false, length = 100)
+    private String endereco;
+    
+    @Column(name = "numero_residenc", nullable = false, length = 6)
+    private String numeroResidenc;
+    
+    @Column(name = "foto", nullable = false, columnDefinition = "LONGTEXT")
+    private String foto;
+    
     // Construtor padrão necessário para JPA
     public UsuarioEntity() {
     }
     
-    public UsuarioEntity(int id,String nome, String email, String senha, String cpfCnpj, String telefone, int enderecoId, boolean status) {
-        this.id = id;
+    public UsuarioEntity(int idUsuario, String nome, String email, String cpfCnpj, String contato, String senha, String cep, String endereco, String numeroResidenc, String foto) {
+        this.idUsuario = idUsuario;
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
         this.cpfCnpj = cpfCnpj;
-        this.telefone = telefone;
-        this.enderecoId = enderecoId;
-        this.status = status;
+        this.contato = contato;
+        this.senha = senha;
+        this.cep = cep;
+        this.endereco = endereco;
+        this.numeroResidenc = numeroResidenc;
+        this.foto = foto;
+    }
+    
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+    
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String getCpfCnpj() {
+        return cpfCnpj;
+    }
+    
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
+    }
+    
+    public String getContato() {
+        return contato;
+    }
+    
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
+    
+    public String getSenha() {
+        return senha;
+    }
+    
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    public String getCep() {
+        return cep;
+    }
+    
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+    
+    public String getEndereco() {
+        return endereco;
+    }
+    
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+    
+    public String getNumeroResidenc() {
+        return numeroResidenc;
+    }
+    
+    public void setNumeroResidenc(String numeroResidenc) {
+        this.numeroResidenc = numeroResidenc;
+    }
+    
+    public String getFoto() {
+        return foto;
+    }
+    
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }
 
