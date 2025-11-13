@@ -157,24 +157,6 @@ Content-Type: application/json
 }
 ```
 
-**Exemplo cURL:**
-```bash
-curl -X POST http://localhost:8080/usuario \
-  -H "Content-Type: application/json" \
-  -d '{
-    "idUsuario": 0,
-    "nome": "João Silva",
-    "email": "joao@email.com",
-    "cpfCnpj": "12345678900",
-    "contato": "47999999999",
-    "senha": "senha123",
-    "cep": "89000000",
-    "endereco": "Rua Exemplo, 123",
-    "numeroResidenc": "123",
-    "foto": "https://exemplo.com/foto.jpg"
-  }'
-```
-
 ---
 
 ### GET /usuario/{id}
@@ -196,11 +178,6 @@ Busca um usuário pelo ID.
   "numeroResidenc": "123",
   "foto": "https://exemplo.com/foto.jpg"
 }
-```
-
-**Exemplo cURL:**
-```bash
-curl -X GET http://localhost:8080/usuario/1
 ```
 
 ---
@@ -236,10 +213,6 @@ Lista todos os usuários.
 ]
 ```
 
-**Exemplo cURL:**
-```bash
-curl -X GET http://localhost:8080/usuario
-```
 
 ---
 
@@ -296,25 +269,6 @@ Content-Type: application/json
 }
 ```
 
-**Exemplo cURL:**
-```bash
-curl -X POST http://localhost:8080/produto \
-  -H "Content-Type: application/json" \
-  -d '{
-    "idProduto": 0,
-    "nome": "Bicicleta Mountain Bike",
-    "descricao": "Bicicleta mountain bike usada, em bom estado",
-    "foto": "https://exemplo.com/bicicleta.jpg",
-    "preco": 150.00,
-    "categoriaIdCategoria": 1,
-    "condicaoIdCondicao": 1,
-    "periodoIdPeriodo": 1,
-    "usuarioIdUsuario": 1
-  }'
-```
-
-**Observação:** O campo `usuarioIdUsuario` é obrigatório e vincula o produto ao usuário. Um usuário pode ter vários produtos.
-
 ---
 
 ### GET /produto/{id}
@@ -338,10 +292,6 @@ Busca um produto pelo ID.
 }
 ```
 
-**Exemplo cURL:**
-```bash
-curl -X GET http://localhost:8080/produto/1
-```
 
 ---
 
@@ -376,11 +326,6 @@ Lista todos os produtos.
 ]
 ```
 
-**Exemplo cURL:**
-```bash
-curl -X GET http://localhost:8080/produto
-```
-
 ---
 
 ## 📅 Periodo
@@ -399,10 +344,6 @@ Busca um período pelo ID.
 }
 ```
 
-**Exemplo cURL:**
-```bash
-curl -X GET http://localhost:8080/periodo/1
-```
 
 ---
 
@@ -425,11 +366,6 @@ Lista todos os períodos.
     "descricao": "Mensal"
   }
 ]
-```
-
-**Exemplo cURL:**
-```bash
-curl -X GET http://localhost:8080/periodo
 ```
 
 ---
@@ -470,69 +406,7 @@ curl -X GET http://localhost:8080/periodo
 
 ---
 
-## 📝 Exemplos de Requisições
 
-### Exemplo 1: Criar Usuário
-
-```bash
-curl -X POST http://localhost:8080/usuario \
-  -H "Content-Type: application/json" \
-  -d '{
-    "idUsuario": 0,
-    "nome": "João Silva",
-    "email": "joao@email.com",
-    "cpfCnpj": "12345678900",
-    "contato": "47999999999",
-    "senha": "senha123",
-    "cep": "89000000",
-    "endereco": "Rua Exemplo, 123",
-    "numeroResidenc": "123",
-    "foto": "https://exemplo.com/foto.jpg"
-  }'
-```
-
-### Exemplo 2: Criar Produto
-
-```bash
-curl -X POST http://localhost:8080/produto \
-  -H "Content-Type: application/json" \
-  -d '{
-    "idProduto": 0,
-    "nome": "Notebook Dell Inspiron",
-    "descricao": "Notebook usado, funcionando perfeitamente",
-    "foto": "https://exemplo.com/notebook.jpg",
-    "preco": 2500.50,
-    "categoriaIdCategoria": 1,
-    "condicaoIdCondicao": 1,
-    "periodoIdPeriodo": 1,
-    "usuarioIdUsuario": 1
-  }'
-```
-
-### Exemplo 3: Listar Produtos de um Usuário
-
-Primeiro, liste todos os produtos:
-```bash
-curl -X GET http://localhost:8080/produto
-```
-
-Depois, filtre pelo `usuarioIdUsuario` desejado.
-
----
-
-## 🔒 Observações Importantes
-
-1. **Senha**: A senha é armazenada em texto plano. Para produção, implemente hash (BCrypt, etc.).
-
-2. **Foto**: O campo `foto` aceita URL ou string base64. Para produção, considere upload de arquivos.
-
-3. **Validação**: Adicione validações de campos (Bean Validation) para produção.
-
-4. **Tratamento de Erros**: Implemente tratamento de erros adequado com mensagens claras.
-
-5. **Segurança**: Implemente autenticação e autorização (JWT, OAuth2, etc.) para produção.
-
----
 
 ## 📚 Arquitetura
 
@@ -548,26 +422,3 @@ O projeto segue os princípios da **Arquitetura Limpa (Clean Architecture)**:
 ## 👨‍💻 Desenvolvimento
 
 Projeto desenvolvido para a faculdade de ADS Fase 4.
-
----
-
-## 📄 Licença
-
-Este projeto é desenvolvido para fins educacionais.
-
----
-
-## 🤝 Contribuindo
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
----
-
-## 📧 Contato
-
-Para dúvidas ou sugestões, abra uma issue no repositório.
-
